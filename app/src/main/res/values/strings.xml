@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">PressureTest</string>
+
+    <string name="reboot_test">重启压力测试</string>
+    <string name="video_test">高清视频播放测试</string>
+    <string name="auto_set_time">自动确定网络时间</string>
+    <string name="ethernet_test">以太网测试</string>
+    <string name="wifi_test">Wifi测试</string>
+    <string name="mobile_net_test">4G模块测试</string>
+    <string name="print_log">打印日志</string>
+
+    <string name="last_power_on_off_time_logs">删除定时开关机日志</string>
+    <string name="reboot_log">删除重启日志</string>
+    <string name="auto_sync_net_time">删除自动同步网络时间的日志</string>
+    <string name="video_test_log">删除视频轮播的日志</string>
+    <string name="etherent_reboot_test_log">删除以太网测试的日志</string>
+    <string name="wifi_reboot_test_log">删除wifi测试日志</string>
+    <string name="mobile_test_log">删除4G模块的日志</string>
+    <string name="delete_all">删除所有日志</string>
+
+    <string name="btn_start">开始</string>
+    <string name="btn_stop">结束</string>
+    <string name="btn_exit">退出</string>
+    <string name="btn_setting">设置测试的次数</string>
+    <string name="btn_clear">清除设置</string>
+    <string name="have_test_time">已经测试的次数： </string>
+    <string name="set_test_time">设置的测试次数：</string>
+    <string name="not_setting">0</string>
+
+    <string name="reboot_countdown">系统马上重启，倒计时： </string>
+    <string name="reboot_dialog_msg">确定开始重启测试吗？5s后将开始</string>
+    <string name="reboot_dialog_title">重启</string>
+    <string name="dialog_ok">确认</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="aging_time">时间：</string>
+
+    <string name="reboot_mode">重启模式</string>
+    <string name="switch_mode">开关模式</string>
+    <string name="reset_mode">复位模式</string>
+    <string name="long_running">长时间运行模式</string>
+
+
+    <!--wifi-->
+    <string name="scaning">正在扫描&#8230;</string>
+    <string name="conncting">正在连接&#8230;</string>
+    <string name="veritying_identity">正在进行身份验证&#8230;</string>
+    <string name="gaining_ip_address">正在获取IP地址&#8230;</string>
+    <string name="paused">已暂停</string>
+    <string name="disconnecting">正在断开连接&#8230;</string>
+    <string name="disconnected">已断开连接</string>
+    <string name="fail">失败</string>
+    <string name="blocked">已阻止</string>
+    <string name="close_poor_connect">暂时关闭状况不佳的连接</string>
+    <string name="connect_to">已连接到 %1$s</string>
+    <string name="connecting_to">正在连接到 %1$s&#8230;</string>
+    <string name="inform_something_veritying_identity">正在通过%1$s进行身份验证&#8230;</string>
+    <string name="from_something_gaining_ip_address">正在从%1$s获取IP地址&#8230;</string>
+    <string name="disconnecting_with_something">正在断开%1$s的连接&#8230;</string>
+    <string name="st_connected">已连接</string>
+    <string name="st_inputSSID">输入SSID</string>
+    <string name="st_security">安全性</string>
+    <string name="st_Through_the_WPA_WPA2_protection">通过WPA/WPA2进行保护</string>
+    <string name="st_Through_the_connected_protection_wpa2">通过WPA2进行保护</string>
+    <string name="st_Through_the_connected_protection_wpa">通过WPA进行保护</string>
+    <string name="st_Through_the_connected_protection_wep">通过WEP进行保护</string>
+    <string name="st_open">开放</string>
+
+</resources>

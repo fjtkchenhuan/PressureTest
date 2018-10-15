@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/bg4"
+    tools:context="com.ys.PressureTest.MainActivity">
+
+    <ListView
+        android:id="@+id/stress_list"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="50dp"
+        android:divider="@null"/>
+
+    <Button
+        android:id="@+id/delete_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/stop_auto_set_time"
+        android:background="@drawable/button_background"
+        android:text="删除日志"/>
+
+    <Button
+        android:id="@+id/stop_auto_set_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_background"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="停止自动确定网络时间测试"/>
+
+
+</RelativeLayout>

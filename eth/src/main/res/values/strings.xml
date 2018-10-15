@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PingTest</string>
+    <string name="permission_cus_title">亲爱的上帝</string>
+    <string name="permission_cus_msg">为了程序的正常使用，我们需要以下权限</string>
+</resources>

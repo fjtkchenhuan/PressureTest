@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.ys.PressureTest.net.MobileNetActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="4G模块测试"
+        android:textSize="40sp"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/main_menu_item_text"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="800dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/text"
+        android:divider="@null"/>
+
+    <TextView
+        android:id="@+id/test_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listView"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/main_menu_item_text"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/stop_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_background"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:text="停止测试"/>
+
+</RelativeLayout>

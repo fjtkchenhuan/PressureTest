@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.clenttest">
+    <!--android:sharedUserId="android.uid.system"-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application
+        android:name="com.example.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ModeSelectionActivity"></activity>
+        <receiver android:name="com.example.Receiver.StartBootComplete">
+            <intent-filter>
+                <!--开机广播-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 关机广播 -->
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <!--重启广播-->
+                <!--<action android:name="android.intent.action.REBOOT" />-->
+                <!--定时开关机广播-->
+                <action android:name="com.signway.PowerOnOff" />
+                <action android:name="android.intent.action.setpoweronoff" />
+                <action android:name="android.NET.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.Net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+
+                <action android:name="android.net.ethernet.ETHERNET_STATE_CHANGED" />
+                <action android:name="android.net.ethernet.STATE_CHANGE" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.example.Service.MainServices">
+            <intent-filter>
+                <action android:name="com.example.zyh.information.Service.MainServices" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

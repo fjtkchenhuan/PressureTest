@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_wifi"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/setting_wlan_first_ll"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/wifi_switch_color"
+        android:tag="skin:background_shape:background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingEnd="5dp"
+            android:paddingStart="100dp"
+            android:text="wifi开关"
+            android:textSize="25sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
+
+        <ImageView
+            android:id="@+id/wlan_switch_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="100dp"
+            android:focusable="true"
+            android:padding="5dp"
+            android:src="@drawable/controlbutton_open"
+            android:contentDescription="@null"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_wifi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/wifi_reboot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:focusable="true"
+            android:background="@drawable/button_background"
+            android:text="重启"/>
+        <Button
+            android:id="@+id/wifi_not_reboot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:focusable="true"
+            android:background="@drawable/button_background"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:text="控制wifi开关"/>
+        <Button
+            android:id="@+id/stop_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:focusable="true"
+            android:background="@drawable/button_background"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:text="停止测试"/>
+        <TextView
+            android:id="@+id/text_failed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="未连接上wifi网络，测试结束！！！"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            android:textColor="@color/colorAccent"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

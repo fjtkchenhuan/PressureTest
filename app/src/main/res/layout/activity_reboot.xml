@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        style="@style/Title_TextView"
+        android:text="@string/reboot_test" />
+
+    <TextView
+        android:id="@+id/count_tv"
+        android:layout_marginTop="100dp"
+        android:text="@string/have_test_time"
+        style="@style/Normal_TextView" />
+
+    <TextView
+        android:id="@+id/maxtime_tv"
+        android:layout_below="@id/count_tv"
+        android:text="@string/set_test_time"
+        style="@style/Normal_TextView"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxtime_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/setting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_setting" />
+
+        <Button
+            android:id="@+id/clear_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_clear" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/countdown_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/reboot_countdown"
+        android:visibility="invisible"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start_btn"
+            style="@style/bottom_btn"
+            android:text="@string/btn_start" />
+
+        <Button
+            android:id="@+id/stop_btn"
+            style="@style/bottom_btn"
+            android:text="@string/btn_stop" />
+
+        <Button
+            android:id="@+id/exit_btn"
+            style="@style/bottom_btn"
+            android:text="@string/btn_exit" />
+    </LinearLayout>
+
+</RelativeLayout>
