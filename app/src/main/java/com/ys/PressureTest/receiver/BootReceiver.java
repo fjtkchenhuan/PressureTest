@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 
@@ -13,8 +14,10 @@ import com.ys.PressureTest.log.SQLiteDao;
 import com.ys.PressureTest.net.EthernetActivity;
 import com.ys.PressureTest.net.MobileNetActivity;
 import com.ys.PressureTest.net.WifiActivity;
+import com.ys.PressureTest.poweronoff.AutoPowerOnOffActivity;
 import com.ys.PressureTest.reboot.RebootActivity;
 import com.ys.PressureTest.utils.CommandUtils;
+import com.ys.PressureTest.utils.FileUtils;
 import com.ys.PressureTest.utils.PowerOnOffUtils;
 import com.ys.PressureTest.utils.TimeUtils;
 import com.ys.PressureTest.utils.ToastUtils;
@@ -57,8 +60,17 @@ public class BootReceiver extends BroadcastReceiver {
             startSyncNetTime();
 
             //获取U盘里的定时开关机数据，对比当前时间，将最近的一次开关机时间设置到系统
-            if (powerOnOffSp.getInt(Constant.SP_POWERONOFF_MODE,0) == 1)
+            if (powerOnOffSp.getInt(Constant.SP_POWERONOFF_MODE,0) == 1) {
                 setPowerOnOffTime(context);
+                long lastPowerOnTime = powerOnOffSp.getLong(Constant.SP_REBOOT_POWERONTIME,System.currentTimeMillis() - 60 * 1000);
+                if (Math.abs(System.currentTimeMillis() - lastPowerOnTime) > 2 * 24 *60 *60 *1000)
+                    FileUtils.getKmsgLog(Environment.getExternalStorageDirectory() + "/KernelLog.txt");
+            } else if (powerOnOffSp.getInt(Constant.SP_POWERONOFF_MODE,0) == 3) {
+                //自动测试定时开关机
+                startActivity(context, AutoPowerOnOffActivity.class);
+                int count = powerOnOffSp.getInt(Constant.SP_AUTO_POWERONOFF_COUNTS , 0);
+                powerOnOffSp.edit().putInt(Constant.SP_AUTO_POWERONOFF_COUNTS , count + 1).apply();
+            }
 
             //以太网测试，重启
             if (context.getSharedPreferences(Constant.SP_NET_TEST,0).getInt(Constant.SP_ETHERNET_REBOOT_MODE,0) == 1) {
@@ -112,6 +124,8 @@ public class BootReceiver extends BroadcastReceiver {
     };
 
     private void setPowerOnOffTime(Context context) {
+        //将当前开机时间存起来
+        powerOnOffSp.edit().putLong(Constant.SP_REBOOT_POWERONTIME,System.currentTimeMillis()).apply();
         Set<String> powerOn = powerOnOffSp.getStringSet(Constant.SP_POWER_DATA,new HashSet<String>(0));
 
         List<String> powerOnOffList = new ArrayList<>();

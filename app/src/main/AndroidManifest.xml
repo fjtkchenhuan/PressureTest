@@ -20,8 +20,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
     <permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <permission android:name="android.permission.SET_TIME" />
 
@@ -34,9 +35,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FullScreen">
-        <activity
-            android:name=".MainActivity"
-            >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,10 +68,9 @@
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".receiver.CountDownReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.CountdownBegin"/>
+                <action android:name="android.intent.action.CountdownBegin" />
             </intent-filter>
         </receiver>
 
@@ -83,7 +81,8 @@
         <activity android:name=".net.EthernetActivity" />
         <activity android:name=".net.WifiActivity" />
         <activity android:name=".net.MobileNetActivity" />
-        <activity android:name=".net.TestActivity"/>
+        <activity android:name=".net.TestActivity" />
+        <activity android:name=".poweronoff.AutoPowerOnOffActivity"></activity>
     </application>
 
 </manifest>

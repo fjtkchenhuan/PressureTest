@@ -26,6 +26,7 @@ public class Constant {
     public static final String SP_REBOOT_DATA = "rebootData";
 
     //保存最近一次的定时开关机数据
+    public static final String SP_REBOOT_POWERONTIME = "rebootPowerOnTime"; //在测试模式1时，记录每次开机时间
     public static final String SP_POWER_ON_OFF = "PowerOnOffDatas";
     public static final String SP_POWER_DATA = "powerOn";
     public static final String SP_LAST_POWERONOFF_TIME = "lastTime";
@@ -33,6 +34,7 @@ public class Constant {
     public static final String SP_POWERONOFF_MODE = "powerOnOffMode";
     public static final String SP_POWER_OFF_TIME = "powerOffTime";
     public static final String SP_POWER_ON_TIME = "powerOnTime";
+    public static final String SP_AUTO_POWERONOFF_COUNTS = "autoPowerOnOffCounts";
 
     //测试自动确定网络时间是否打开
     public static final String SP_AUTO_SYNC_TIME = "AutoSyncNetTime";

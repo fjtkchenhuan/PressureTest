@@ -270,6 +270,31 @@ public class FileUtils {
         t.start();
     }
 
+    public static void getKmsgLog(String path) {
+        InputStreamReader reader = null;
+        BufferedReader bufferedReader = null;
+        Process process = null;
+        String lineText = null;
+        List<String> txtLists = new ArrayList<>();
+        try {
+            process = Runtime.getRuntime().exec("dmesg");
+            reader = new InputStreamReader(process.getInputStream());
+            bufferedReader = new BufferedReader(reader);
+            while ((lineText = bufferedReader.readLine()) != null) {
+                txtLists.add(lineText);
+            }
+            StringBuffer buffer = new StringBuffer();
+            for (String s : txtLists) {
+                buffer.append(s + "\n");
+            }
+            saveToSDCard(path,buffer.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
 }

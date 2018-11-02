@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.ys.PressureTest.Constant;
 import com.ys.PressureTest.log.SQLiteDao;
+import com.ys.PressureTest.poweronoff.AutoPowerOnOffActivity;
 import com.ys.PressureTest.utils.FileUtils;
 import com.ys.PressureTest.utils.PowerOnOffUtils;
 import com.ys.PressureTest.utils.TimeUtils;
@@ -50,6 +51,7 @@ public class MountReceiver extends BroadcastReceiver {
             if (path != null && !TextUtils.isEmpty(path)) {
                 File paths = new File(path);
                 doActionWithTestTxt(paths,context);
+                Log.d(TAG,"path = " + path);
             }
         }
 
@@ -60,10 +62,11 @@ public class MountReceiver extends BroadcastReceiver {
         int length = txtLists.size();
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constant.SP_POWER_ON_OFF,0);
-        sharedPreferences.edit().putInt(Constant.SP_POWERONOFF_MODE,getPowerMode(txtLists)).apply();
 //        sharedPreferences.edit().putInt(Constant.SP_POWERONOFF_COUNTS,0).apply();
-        if (length > 1) {
-            if (getPowerMode(txtLists) == 1) {
+        if (length >= 1) {
+            int mode = getPowerMode(txtLists);
+            sharedPreferences.edit().putInt(Constant.SP_POWERONOFF_MODE,mode).apply();
+            if ( mode == 1) {
                 Set<String> powerOnDates = new LinkedHashSet<>();
                 for (int i = 1; i < length; i++) {
                     powerOnDates.add(txtLists.get(i));
@@ -122,8 +125,7 @@ public class MountReceiver extends BroadcastReceiver {
                     ToastUtils.showShortToast(context,"设置的时间均不符合要求");
                 }
 
-
-            } else if (getPowerMode(txtLists) == 2) {
+            } else if (mode == 2) {
                 int[] weekly = getWeekly(txtLists.get(1));
                 int[] powerOnTime = getWeekPowerOnOffTime(txtLists.get(2));
                 int[] powerOffTime = getWeekPowerOnOffTime(txtLists.get(3));
@@ -136,16 +138,24 @@ public class MountReceiver extends BroadcastReceiver {
                 context.sendBroadcast(intent);
                 ToastUtils.showShortToast(context,"成功设置模式2的开关机时间");
                 Log.d(TAG,"context.sendBroadcast(intent);22222");
+            } else if (mode == 3) {
+                Log.d(TAG,"AutoPowerOnOffActivity");
+                Intent intent = new Intent(context, AutoPowerOnOffActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         }
     }
 
     private int getPowerMode(List<String> txtLists) {
         int powerOnOffMode = 0;
-        if (txtLists.get(0).contains("1"))
+        if (txtLists.get(0).equals("mode1"))
             powerOnOffMode = 1;
-        else if (txtLists.get(0).contains("2"))
+        else if (txtLists.get(0).equals("mode2"))
             powerOnOffMode = 2;
+        else if (txtLists.get(0).equals("mode3"))
+            powerOnOffMode = 3;
+        Log.d(TAG,"powerOnOffMode = " + powerOnOffMode);
        return powerOnOffMode;
     }
 
