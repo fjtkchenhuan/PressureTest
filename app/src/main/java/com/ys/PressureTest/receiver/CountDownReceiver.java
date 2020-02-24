@@ -14,6 +14,7 @@ public class CountDownReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.intent.action.CountdownBegin")) {
             Intent intent1 = new Intent("android.intent.ClearOnOffTime");
+            intent1.setPackage("com.adtv");
             context.sendBroadcast(intent1);
         }
 

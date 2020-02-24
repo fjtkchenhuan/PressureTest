@@ -167,6 +167,7 @@ public class BootReceiver extends BroadcastReceiver {
             intent.putExtra("timeon", powerOnTime);
             intent.putExtra("timeoff", powerOffTime);
             intent.putExtra("enable", true);
+            intent.setPackage("com.adtv");
             context.sendBroadcast(intent);
             ToastUtils.showShortToast(context,"成功设置一组模式1的开关机时间");
 

@@ -76,7 +76,10 @@ public class PowerOnOffUtils {
     }
 
     public static void reboot(Context context) {
+        String mode = ModelUtils.getRKModel();
         Intent intent = new Intent("android.intent.action.reboot");
+        if (!mode.contains("rk"))
+            intent.setPackage("com.ys.ys_receiver");
         context.sendBroadcast(intent);
     }
 }

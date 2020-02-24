@@ -200,6 +200,7 @@ public class AutoSyncNetTimeService extends Service{
         Intent intent = new Intent();
         intent.setAction("com.ys.update_time");
         intent.putExtra("current_time", ts);
+        intent.setPackage("com.ys.ys_receiver");
         if (context == null) return;
         context.sendBroadcast(intent);
     }

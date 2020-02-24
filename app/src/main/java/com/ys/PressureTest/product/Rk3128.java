@@ -34,6 +34,7 @@ public class Rk3128 extends RK {
     public void takeBrightness(Context context) {
         Intent intent = new Intent("com.ys.show_brightness_dialog");
         intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        intent.setPackage("com.ys.ys_receiver");
         context.sendBroadcast(intent);
     }
 }

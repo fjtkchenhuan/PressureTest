@@ -39,6 +39,7 @@ public class NetUtils {
     public static void openOrCloseEth(Context context,boolean open) {
         Intent intent = new Intent("com.ys.set_eth_enabled");
         intent.putExtra("eth_mode",open);
+        intent.setPackage("com.ys.ys_receiver");
         context.sendBroadcast(intent);
     }
 

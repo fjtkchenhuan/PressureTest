@@ -1,10 +1,12 @@
 package com.ys.PressureTest.video;
 
+import android.graphics.Matrix;
 import android.media.MediaPlayer;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -48,6 +50,7 @@ public class VideoActivity extends PermissionActivity {
 
         setSysInfo();
         setVideoInfo();
+
     }
 
     private void initFile() {
@@ -68,7 +71,6 @@ public class VideoActivity extends PermissionActivity {
             ToastUtils.showShortToast(this,"请在内置存储Movies目录下放置视频");
             finish();
         }
-
     }
 
     private boolean isVideo(String path) {

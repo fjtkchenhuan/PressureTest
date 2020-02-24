@@ -51,16 +51,16 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.MountReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.MEDIA_REMOVED" />
-                <action android:name="android.intent.action.MEDIA_BAD_REMOVAL" />
-                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
-                <action android:name="android.intent.action.MEDIA_UNMOUNTABLE" />
+        <intent-filter>
+            <action android:name="android.intent.action.MEDIA_MOUNTED" />
+            <action android:name="android.intent.action.MEDIA_REMOVED" />
+            <action android:name="android.intent.action.MEDIA_BAD_REMOVAL" />
+            <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+            <action android:name="android.intent.action.MEDIA_UNMOUNTABLE" />
 
-                <data android:scheme="file" />
-            </intent-filter>
-        </receiver>
+            <data android:scheme="file" />
+        </intent-filter>
+    </receiver>
         <receiver android:name=".receiver.PowerOffReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />

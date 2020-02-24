@@ -117,6 +117,7 @@ public class MountReceiver extends BroadcastReceiver {
                     intent.putExtra("timeon", powerOnTime);
                     intent.putExtra("timeoff", powerOffTime);
                     intent.putExtra("enable", true);
+                    intent.setPackage("com.adtv");
                     context.sendBroadcast(intent);
                     ToastUtils.showShortToast(context,"成功设置一组模式1的开关机时间");
 
@@ -135,6 +136,7 @@ public class MountReceiver extends BroadcastReceiver {
                 intent.putExtra("timeoff", powerOffTime);
                 intent.putExtra("wkdays", weekly);
                 intent.putExtra("enable", true);
+                intent.setPackage("com.adtv");
                 context.sendBroadcast(intent);
                 ToastUtils.showShortToast(context,"成功设置模式2的开关机时间");
                 Log.d(TAG,"context.sendBroadcast(intent);22222");

@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent();
         intent.setAction("com.ys.update_time");
         intent.putExtra("current_time", ts);
+        intent.setPackage("com.ys.ys_receiver");
         if (context == null) return;
         context.sendBroadcast(intent);
     }
@@ -171,8 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             switch (msg.what) {
                 case REBOOT:
-                    Intent intent = new Intent("android.intent.action.reboot");
-                    module.sendBroadcast(intent);
+                    PowerOnOffUtils.reboot(module);
                     break;
                     default:
                         break;
